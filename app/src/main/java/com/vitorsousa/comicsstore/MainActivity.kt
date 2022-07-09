@@ -7,7 +7,7 @@ import androidx.navigation.fragment.NavHostFragment
 import com.vitorsousa.comicsstore.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    
+
     lateinit var binding: ActivityMainBinding
     lateinit var navController: NavController
 

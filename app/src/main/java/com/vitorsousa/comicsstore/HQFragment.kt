@@ -8,13 +8,15 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.navGraphViewModels
 import com.vitorsousa.comicsstore.placeholder.PlaceholderContent
 
 /**
  * A fragment representing a list of Items.
  */
-class HQFragment : Fragment() {
+class HQFragment : Fragment(), HQItemListener {
 
     private val viewModel by navGraphViewModels<HQViewModel>(R.id.hq_graph){defaultViewModelProviderFactory}
     private var columnCount = 1
@@ -40,7 +42,7 @@ class HQFragment : Fragment() {
                     columnCount <= 1 -> LinearLayoutManager(context)
                     else -> GridLayoutManager(context, columnCount)
                 }
-                adapter = MyhqRecyclerViewAdapter(PlaceholderContent.ITEMS)
+                adapter = MyhqRecyclerViewAdapter(PlaceholderContent.ITEMS, this@HQFragment)
             }
         }
         return view
@@ -59,5 +61,9 @@ class HQFragment : Fragment() {
                     putInt(ARG_COLUMN_COUNT, columnCount)
                 }
             }
+    }
+
+    override fun onItemSelected(position: Int) {
+        findNavController().navigate(R.id.action_HQFragment_to_HQDetailsFragment)
     }
 }
