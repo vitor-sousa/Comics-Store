@@ -15,9 +15,16 @@ interface HQItemListener {
 }
 
 class MyhqRecyclerViewAdapter(
-    private val values: List<PlaceholderItem>,
     private val listener: HQItemListener
 ) : RecyclerView.Adapter<MyhqRecyclerViewAdapter.ViewHolder>() {
+
+    private val values: MutableList<PlaceholderItem> = ArrayList()
+
+    fun updateList(hqList: List<PlaceholderItem>) {
+        values.clear()
+        values.addAll(hqList)
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
@@ -28,13 +35,11 @@ class MyhqRecyclerViewAdapter(
                 false
             )
         )
-
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = values[position]
-        holder.idView.text = item.id
-        holder.contentView.text = item.content
+        holder.bindItem(item)
         holder.view.setOnClickListener {
             listener.onItemSelected(position)
         }
@@ -42,14 +47,14 @@ class MyhqRecyclerViewAdapter(
 
     override fun getItemCount(): Int = values.size
 
-    inner class ViewHolder(binding: FragmentItemBinding) : RecyclerView.ViewHolder(binding.root) {
-        val view: View = binding.root
-        val idView: TextView = binding.itemNumber
-        val contentView: TextView = binding.content
+    inner class ViewHolder(private val binding: FragmentItemBinding) : RecyclerView.ViewHolder(binding.root) {
+        val view = binding.root
 
-        override fun toString(): String {
-            return super.toString() + " '" + contentView.text + "'"
+        fun bindItem(item: PlaceholderItem) {
+            binding.hqItem = item
+            binding.executePendingBindings()
         }
+
     }
 
 }
