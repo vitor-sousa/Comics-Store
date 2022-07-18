@@ -1,4 +1,4 @@
-package com.vitorsousa.comicsstore
+package com.vitorsousa.comicsstore.HQDetails
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.navGraphViewModels
+import com.vitorsousa.comicsstore.HQViewModel
+import com.vitorsousa.comicsstore.R
 import com.vitorsousa.comicsstore.databinding.FragmentHQDetailsBinding
 
 

@@ -1,4 +1,4 @@
-package com.vitorsousa.comicsstore
+package com.vitorsousa.comicsstore.HQDetails
 
 data class HQDetails (
     val title: String,

@@ -1,10 +1,8 @@
-package com.vitorsousa.comicsstore
+package com.vitorsousa.comicsstore.HQHome
 
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 
 import com.vitorsousa.comicsstore.placeholder.PlaceholderContent.PlaceholderItem
 import com.vitorsousa.comicsstore.databinding.FragmentItemBinding

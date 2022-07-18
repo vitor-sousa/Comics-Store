@@ -3,7 +3,9 @@ package com.vitorsousa.comicsstore
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.vitorsousa.comicsstore.HQDetails.HQDetails
 import com.vitorsousa.comicsstore.placeholder.PlaceholderContent
+import com.vitorsousa.comicsstore.utils.SingleLiveData
 
 class HQViewModel: ViewModel() {
 

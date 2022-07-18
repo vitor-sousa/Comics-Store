@@ -1,4 +1,4 @@
-package com.vitorsousa.comicsstore
+package com.vitorsousa.comicsstore.utils
 
 import androidx.annotation.MainThread
 import androidx.lifecycle.LifecycleOwner
